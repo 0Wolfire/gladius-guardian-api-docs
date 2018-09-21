@@ -538,7 +538,11 @@ registered services.
 <td>The name of the service to get stats of.</td>
 </tr>
 </tbody></table>
-<h1 id='logs'>Logs</h1><h2 id='get-up-to-the-last-thousand-lines-of-logs-from-all-services'>Get up to the last thousand lines of logs from all services</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+<h1 id='logs'>Logs</h1><h2 id='get-up-to-the-last-thousand-lines-of-logs-from-all-services'>Get up to the last thousand lines of logs from all services</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
   --url http://localhost:7791/service/logs
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
@@ -573,6 +577,32 @@ registered services.
     </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
 
 </span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>Response 200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Got logs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"controld"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Starting API at http://localhost:3001"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"networkd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Loading config"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2018/09/21 17:58:13 Loading website: demo.gladius.io"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Starting..."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2018/09/21 17:58:13 Loaded route: test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Started RPC server and HTTP server."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2018/09/21 17:58:13 Loaded route: test (another copy)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2018/09/21 17:58:13 Loaded route: test (copy)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2018/09/21 17:58:13 Loading website: test.gladius.io"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2018/09/21 17:58:13 Loaded route: test"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/service/logs"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://localhost:7791/service/logs</code></p>
 <h1 id='webhooks'>Webhooks</h1><h2 id='new-log-line'>New Log Line</h2>
